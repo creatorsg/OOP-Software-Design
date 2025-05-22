@@ -214,7 +214,8 @@ namespace Zoo
 요약
 1. 출력 요소 및 사용자 입력 명령 등
 2. 오류 코드 출력
-
+   
+```C#
 using System;
 using System.IO;
 using System.Linq;
@@ -327,5 +328,5 @@ namespace Zoo
         }
     }
 }
-        
+```        
         
