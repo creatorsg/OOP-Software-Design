@@ -328,5 +328,25 @@ namespace Zoo
         }
     }
 }
-```        
+```
+
+#5. Program.cs
+1. 애플리케이션 실행 함수
+* species => Animals => AnimalCollection =>Application => Program
+
+```C#
+﻿using System;
+
+namespace Zoo
+{
+    public static class Program
+    {
+        private static void Main()
+        {
+            Application application = new(Console.In);
+            application.Start();
+        }
+    }
+}
+```
         
