@@ -59,6 +59,93 @@ namespace Zoo // namespace 선언
     }
 }
 ```
-        
+
+# 2. AnimalCollection
+요약
+1. animal클래스의 값을 리스트로 받아 저장하는 역할 ( 컨텐이너 역할 )
+2. 추가, 삭제, 검색, 중복 검사 등 기능이 포함  
+
+```C#
+using System.Collections.Generic;
+
+namespace Zoo
+{
+    public class AnimalCollection()
+    {
+        private readonly List<Animal> _animals = [];
+
+        public bool AddAnimal(Animal animal)
+        {
+            if (_animals.Contains(animal))
+            {
+                return false;
+            }
+            _animals.Add(animal);
+            return true;
+        }
+
+        public int AddAnimals(IEnumerable<Animal> animals)
+        {
+            int count = 0;
+            foreach (Animal animal in animals)
+            {
+                if (AddAnimal(animal))
+                {
+                    count += 1;
+                }
+            }
+            return count;
+        }
+
+        public bool RemoveAnimal(Animal animal)
+        {
+            return _animals.Remove(animal);
+        }
+
+        public IEnumerable<Animal> FindAllAnimals()
+        {
+            return [.. _animals];
+        }
+
+        public Animal? FindAnimalById(string id)
+        {
+            foreach (Animal animal in _animals)
+            {
+                if (animal.Id == id)
+                {
+                    return animal;
+                }
+            }
+            return null;
+        }
+
+        public IEnumerable<Animal> FindAnimalsBySpecies(Species species)
+        {
+            List<Animal> results = [];
+            foreach (Animal animal in _animals)
+            {
+                if (animal.Species == species)
+                {
+                    results.Add(animal);
+                }
+            }
+            return results;
+        }
+
+        public IEnumerable<Animal> FindAnimalsByName(string name)
+        {
+            List<Animal> results = [];
+            foreach (Animal animal in _animals)
+            {
+                if (animal.Name == name)
+                {
+                    results.Add(animal);
+                }
+            }
+            return results;
+        }
+    }
+}
+```
         
         
