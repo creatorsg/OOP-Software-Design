@@ -19,26 +19,26 @@ ex) Implementation , Proxy는 각각 다른 네임스페이스이며 둘 모두 
         각 인자를 받아 저장하는 방식으로 _를 사용하는 이유로는 
 
         만약, 코드를 
-        
+```        
         public Animal(string id, string name, Species species)
         {
             id = id;
             name = name;
             species = species;
         }
-
+```
         로 할 경우, 그저 매개변수끼리 할당되므로 구분을 위해 
-        
+```        
         private readonly string _id;
         private readonly string _name;
         private readonly Species _species;
-
+```
         로 정의후 _id를 사용한다 다른 해결 법으로는 .this는 있으나... _id가 더 편하지 않을까?
-
+```
         public string Id => _id;
         public string Name => _name;
         public Species Species => _species;
-
+```
         
 
         
